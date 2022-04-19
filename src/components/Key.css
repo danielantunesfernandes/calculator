@@ -1,0 +1,11 @@
+.keyboard-key-op{
+    background-color: darkgoldenrod;
+}
+.keyboard-key-special{
+    background-color: darkgrey;
+}
+.keyboard-key{
+    text-align: center;   
+}
+
+.special-key-zero { grid-area: 6 / 1 / 6 / 3; }

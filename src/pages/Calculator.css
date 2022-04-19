@@ -1,0 +1,24 @@
+.keyboard-container {
+    display: grid; 
+    grid-template-columns: repeat(4, 50px );
+    grid-template-rows: repeat(6, 50px );
+    gap: 0px 0px; 
+}
+
+.result-screen { 
+    grid-area: 1 / 1 / 2 / 5; 
+    text-align: right;
+}
+
+.keyboard-container div{
+    border-style: solid;
+    border-width: thin;
+}
+
+.container{
+    font-size: xx-large;
+    width: 200px;
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+}
