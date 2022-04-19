@@ -68,4 +68,55 @@ describe('useCalculator', () => {
         expect(result.current.screenValue).toBe(ERROR_MESSAGE);
 
     });
+
+    test("When operator DIV its selected with handleSelectionOperator the screenValue variable should be with empty string", () => {
+        const { result } = renderHook(() => useCalculator());
+        act(() => {
+            result.current.handleSelectNumericKey({ option: KeyOptions.EIGHT, type: KeyTypes.NUMERIC });
+        })
+        expect(result.current.screenValue).toBe(KeyOptions.EIGHT);
+
+        act(() => {
+            result.current.handleSelectionOperator({ option: KeyOptions.DIVISION, type: KeyTypes.SPECIAL });
+        })
+        expect(result.current.screenValue).toBe("");
+    });
+
+    test("When operator MINUS its selected with handleSelectionOperator the screenValue variable should be with empty string", () => {
+        const { result } = renderHook(() => useCalculator());
+        act(() => {
+            result.current.handleSelectNumericKey({ option: KeyOptions.EIGHT, type: KeyTypes.NUMERIC });
+        })
+        expect(result.current.screenValue).toBe(KeyOptions.EIGHT);
+
+        act(() => {
+            result.current.handleSelectionOperator({ option: KeyOptions.MINUS, type: KeyTypes.SPECIAL });
+        })
+        expect(result.current.screenValue).toBe("");
+    });
+    test("When operator MUL its selected with handleSelectionOperator the screenValue variable should be with empty string", () => {
+        const { result } = renderHook(() => useCalculator());
+        act(() => {
+            result.current.handleSelectNumericKey({ option: KeyOptions.EIGHT, type: KeyTypes.NUMERIC });
+        })
+        expect(result.current.screenValue).toBe(KeyOptions.EIGHT);
+
+        act(() => {
+            result.current.handleSelectionOperator({ option: KeyOptions.MULTIPLICATION, type: KeyTypes.SPECIAL });
+        })
+        expect(result.current.screenValue).toBe("");
+    });
+
+    test("When operator ADD its selected with handleSelectionOperator the screenValue variable should be with empty string", () => {
+        const { result } = renderHook(() => useCalculator());
+        act(() => {
+            result.current.handleSelectNumericKey({ option: KeyOptions.EIGHT, type: KeyTypes.NUMERIC });
+        })
+        expect(result.current.screenValue).toBe(KeyOptions.EIGHT);
+
+        act(() => {
+            result.current.handleSelectionOperator({ option: KeyOptions.PLUS, type: KeyTypes.SPECIAL });
+        })
+        expect(result.current.screenValue).toBe("");
+    });
 });
