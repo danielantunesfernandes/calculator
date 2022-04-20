@@ -1,5 +1,5 @@
 import React from "react";
-import Key from "../components/Key";
+import Key from "../components/Key/Key";
 import useCalculator from "../hooks/useCalculator";
 import { KeyOptions } from "../types/enums/KeyOptions";
 import { KeyTypes } from "../types/enums/KeyTypes";
@@ -24,6 +24,7 @@ function Calculator() {
             handleSelection={handleSpecialKeys}
             KeyConf={{ option: KeyOptions.AC, type: KeyTypes.SPECIAL }}
           ></Key>
+
           <Key
             handleSelection={handleSpecialKeys}
             KeyConf={{

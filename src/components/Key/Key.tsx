@@ -1,21 +1,13 @@
 import React from "react";
-import { KeyOptions } from "../types/enums/KeyOptions";
-import { KeyTypes } from "../types/enums/KeyTypes";
-import { KeyInterface } from "../types/KeyInterface";
+import { KeyTypes } from "../../types/enums/KeyTypes";
+import { KeyInterface } from "../../types/KeyInterface";
 import "./Key.css";
 
 type KeyProps = {
-  // keyOption: KeyOptions,
   handleSelection: (KeyConf: KeyInterface) => void;
-  // type?:KeyTypes,
   KeyConf: KeyInterface;
 };
-function Key({
-  // keyOption: keyType,
-  handleSelection,
-  // type=KeyTypes.NUMERIC,
-  KeyConf,
-}: KeyProps): JSX.Element {
+function Key({ handleSelection, KeyConf }: KeyProps): JSX.Element {
   let classes = "keyboard-key";
 
   if (KeyConf.type === KeyTypes.OPERATION) {
@@ -27,7 +19,7 @@ function Key({
   }
   return (
     <div className={classes} onClick={() => handleSelection(KeyConf)}>
-      {KeyConf}
+      {KeyConf.option}
     </div>
   );
 }
