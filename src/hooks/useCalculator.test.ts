@@ -119,4 +119,152 @@ describe('useCalculator', () => {
         })
         expect(result.current.screenValue).toBe("");
     });
+
+    test("when use handleSelectResult to do a sum operation should the result of the operation be in in the screenValue", () => {
+        const { result } = renderHook(() => useCalculator());
+        act(() => {
+            result.current.handleSelectNumericKey({ option: KeyOptions.EIGHT, type: KeyTypes.NUMERIC });
+        })
+        expect(result.current.screenValue).toBe(KeyOptions.EIGHT);
+
+        act(() => {
+            result.current.handleSelectionOperator({ option: KeyOptions.PLUS, type: KeyTypes.SPECIAL });
+        })
+        expect(result.current.screenValue).toBe("");
+
+        act(() => {
+            result.current.handleSelectNumericKey({ option: KeyOptions.EIGHT, type: KeyTypes.NUMERIC });
+        })
+        expect(result.current.screenValue).toBe(KeyOptions.EIGHT);
+
+        act(() => {
+            result.current.handleSelectResult();
+        })
+        expect(result.current.screenValue).toBe("16");
+    });
+
+
+    test("when use handleSelectResult to do a minus operation should the result of the operation be in in the screenValue", () => {
+        const { result } = renderHook(() => useCalculator());
+        act(() => {
+            result.current.handleSelectNumericKey({ option: KeyOptions.EIGHT, type: KeyTypes.NUMERIC });
+        })
+        expect(result.current.screenValue).toBe(KeyOptions.EIGHT);
+
+        act(() => {
+            result.current.handleSelectionOperator({ option: KeyOptions.MINUS, type: KeyTypes.SPECIAL });
+        })
+        expect(result.current.screenValue).toBe("");
+
+        act(() => {
+            result.current.handleSelectNumericKey({ option: KeyOptions.EIGHT, type: KeyTypes.NUMERIC });
+        })
+        expect(result.current.screenValue).toBe(KeyOptions.EIGHT);
+
+        act(() => {
+            result.current.handleSelectResult();
+        })
+        expect(result.current.screenValue).toBe("0");
+    });
+
+    test("when use handleSelectResult to do a division operation should the result of the operation be in in the screenValue", () => {
+        const { result } = renderHook(() => useCalculator());
+        act(() => {
+            result.current.handleSelectNumericKey({ option: KeyOptions.EIGHT, type: KeyTypes.NUMERIC });
+        })
+        expect(result.current.screenValue).toBe(KeyOptions.EIGHT);
+
+        act(() => {
+            result.current.handleSelectionOperator({ option: KeyOptions.DIVISION, type: KeyTypes.SPECIAL });
+        })
+        expect(result.current.screenValue).toBe("");
+
+        act(() => {
+            result.current.handleSelectNumericKey({ option: KeyOptions.EIGHT, type: KeyTypes.NUMERIC });
+        })
+        expect(result.current.screenValue).toBe(KeyOptions.EIGHT);
+
+        act(() => {
+            result.current.handleSelectResult();
+        })
+        expect(result.current.screenValue).toBe("1");
+    });
+
+    test("when use handleSelectResult to do a multiplication operation should the result of the operation be in in the screenValue", () => {
+        const { result } = renderHook(() => useCalculator());
+        act(() => {
+            result.current.handleSelectNumericKey({ option: KeyOptions.EIGHT, type: KeyTypes.NUMERIC });
+        })
+        expect(result.current.screenValue).toBe(KeyOptions.EIGHT);
+
+        act(() => {
+            result.current.handleSelectionOperator({ option: KeyOptions.MULTIPLICATION, type: KeyTypes.SPECIAL });
+        })
+        expect(result.current.screenValue).toBe("");
+
+        act(() => {
+            result.current.handleSelectNumericKey({ option: KeyOptions.EIGHT, type: KeyTypes.NUMERIC });
+        })
+        expect(result.current.screenValue).toBe(KeyOptions.EIGHT);
+
+        act(() => {
+            result.current.handleSelectResult();
+        })
+        expect(result.current.screenValue).toBe("64");
+    });
+
+    test("when use handleSelectResult to do a operation without select operators should not change the screenValue variable", () => {
+        const { result } = renderHook(() => useCalculator());
+
+        act(() => {
+            result.current.handleSelectNumericKey({ option: KeyOptions.EIGHT, type: KeyTypes.NUMERIC });
+        })
+        expect(result.current.screenValue).toBe(KeyOptions.EIGHT);
+
+        act(() => {
+            result.current.handleSelectResult();
+        })
+        expect(result.current.screenValue).toBe("8");
+    });
+
+    test("when use handleSelectResult to do a operation selecting only one operator should not change the screenValue variable", () => {
+        const { result } = renderHook(() => useCalculator());
+
+        expect(result.current.screenValue).toBe("");
+
+        act(() => {
+            result.current.handleSelectResult();
+        })
+        expect(result.current.screenValue).toBe("");
+    });
+
+    test("when use handleSpecialKeys with the key AC should reset the screenValue variable to empty screen", () => {
+        const { result } = renderHook(() => useCalculator());
+        act(() => {
+            result.current.handleSelectNumericKey({ option: KeyOptions.EIGHT, type: KeyTypes.NUMERIC });
+        })
+        expect(result.current.screenValue).toBe(KeyOptions.EIGHT);
+
+        act(() => {
+            result.current.handleSelectionOperator({ option: KeyOptions.MULTIPLICATION, type: KeyTypes.SPECIAL });
+        })
+        expect(result.current.screenValue).toBe("");
+
+        act(() => {
+            result.current.handleSelectNumericKey({ option: KeyOptions.EIGHT, type: KeyTypes.NUMERIC });
+        })
+        expect(result.current.screenValue).toBe(KeyOptions.EIGHT);
+
+        act(() => {
+            result.current.handleSelectResult();
+        })
+        expect(result.current.screenValue).toBe("64");
+
+
+        act(() => {
+            result.current.handleSpecialKeys({ option: KeyOptions.AC, type: KeyTypes.SPECIAL });
+        })
+
+        expect(result.current.screenValue).toBe("");
+    });
 });
