@@ -1,8 +1,8 @@
 import React from "react";
-import Key from "../components/Key/Key";
-import useCalculator from "../hooks/useCalculator";
-import { KeyOptions } from "../types/enums/KeyOptions";
-import { KeyTypes } from "../types/enums/KeyTypes";
+import Key from "../../components/Key/Key";
+import useCalculator from "../../hooks/useCalculator";
+import { KeyOptions } from "../../types/enums/KeyOptions";
+import { KeyTypes } from "../../types/enums/KeyTypes";
 import "./Calculator.css";
 
 function Calculator() {

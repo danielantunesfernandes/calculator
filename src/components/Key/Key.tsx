@@ -8,7 +8,7 @@ type KeyProps = {
   KeyConf: KeyInterface;
 };
 function Key({ handleSelection, KeyConf }: KeyProps): JSX.Element {
-  let classes = "keyboard-key";
+  let classes = "keyboard-key"; //TODO pass this values to constants variables, that could be used in unit tests also
 
   if (KeyConf.type === KeyTypes.OPERATION) {
     classes += " keyboard-key-op";
