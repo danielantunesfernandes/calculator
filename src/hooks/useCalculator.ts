@@ -71,13 +71,13 @@ function useCalculator(): UseCalculatorProps {
     }
 
 
-    function handleSelectNumericKey(KeyConf: KeyInterface): void {
+    function handleSelectNumericKey(keyConf: KeyInterface): void {
 
-        if (KeyConf.type !== KeyTypes.NUMERIC) {
+        if (keyConf.type !== KeyTypes.NUMERIC && keyConf.type !== KeyTypes.ZERO) {
             setScreenValue(ERROR_MESSAGE);
         } else {
-            let screenValueAux = screenValue + KeyConf.option;
-            if (KeyConf.option !== KeyOptions.COMMA) {
+            let screenValueAux = screenValue + keyConf.option;
+            if (keyConf.option !== KeyOptions.COMMA) {
                 if (operator === undefined) {
                     setOp1(parseFloat(screenValueAux));
                 } else {

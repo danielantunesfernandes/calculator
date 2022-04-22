@@ -19,7 +19,9 @@ function Calculator() {
       <p>Calculator</p>
       <div className="container">
         <div className="keyboard-container">
-          <div className="result-screen">{screenValue}</div>
+          <div className="result-screen" data-testid="screeValueArea">
+            {screenValue}
+          </div>
           <Key
             handleSelection={handleSpecialKeys}
             KeyConf={{ option: KeyOptions.AC, type: KeyTypes.SPECIAL }}
